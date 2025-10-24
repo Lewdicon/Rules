@@ -1,0 +1,2 @@
+# Rules
+Trinity Server Rules
