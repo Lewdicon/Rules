@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinity RP - Server Rules 2006</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap" rel="stylesheet">
+    <style>
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        @keyframes glitter {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #2354b8 0%, #06b4b2 100%);
+            font-family: 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            width: 250px;
+            height: fit-content;
+            background: white;
+            border: 5px solid #ff00e9;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            background: linear-gradient(180deg, #2354b8 0%, #06b4b2 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff00e9;
+        }
+
+        .sidebar-header h3 {
+            color: white;
+            font-size: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .nav-links {
+            padding: 15px 0;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 12px 20px;
+            color: #2354b8;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(90deg, #ff00e9, #06b4b2, #ffd700, #ff00e9);
+            background-size: 200% 200%;
+            animation: glitter 2s ease infinite;
+            border-left-color: #ff00e9;
+            padding-left: 25px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,0,233,0.6);
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(90deg, rgba(35,84,184,0.15) 0%, rgba(6,180,178,0.15) 100%);
+            border-left-color: #06b4b2;
+        }
+        
+        .main-content {
+            flex: 1;
+            background: white;
+            border: 5px solid #ff00e9;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        
+        .header {
+            background: linear-gradient(180deg, #2354b8 0%, #06b4b2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 5px solid #ff00e9;
+        }
+        
+        .header h1 {
+            font-family: 'Rubik Vinyl', cursive;
+            color: white;
+            font-size: 90px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 20px rgba(255,0,233,0.8), 0 0 40px rgba(255,0,233,0.6);
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, #fff, #ff00e9, #06b4b2, #fff, #ff00e9);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glitter 3s ease infinite;
+            position: relative;
+        }
+        
+        .header h1::after {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            font-size: 40px;
+            animation: sparkle 1.5s ease-in-out infinite;
+            -webkit-text-fill-color: white;
+        }
+        
+        .header h1::before {
+            content: '✨';
+            position: absolute;
+            bottom: -10px;
+            left: -30px;
+            font-size: 40px;
+            animation: sparkle 1.5s ease-in-out infinite 0.5s;
+            -webkit-text-fill-color: white;
+        }
+        
+        .header p {
+            color: #fff;
+            font-size: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        h2 {
+            background: linear-gradient(90deg, #2354b8 0%, #06b4b2 100%);
+            color: white;
+            padding: 15px 20px;
+            margin: 30px 0 20px 0;
+            border-left: 8px solid #ff00e9;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            scroll-margin-top: 20px;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #2354b8;
+            font-size: 22px;
+            margin: 25px 0 15px 0;
+            padding-left: 10px;
+            border-left: 5px solid #06b4b2;
+        }
+        
+        h4 {
+            color: #06b4b2;
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+            padding-left: 10px;
+        }
+        
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        strong {
+            color: #2354b8;
+        }
+        
+        .glittery {
+            background: linear-gradient(45deg, #ff00e9, #06b4b2, #ffd700, #ff00e9, #06b4b2);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glitter 2s ease infinite;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(35,84,184,0.1) 0%, rgba(6,180,178,0.1) 100%);
+            border: 3px solid #06b4b2;
+            border-left: 8px solid #ff00e9;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            background: #2354b8;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid #ff00e9;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 3px solid #06b4b2;
+            margin: 40px 0;
+        }
+        
+        .immersion-guide {
+            background: linear-gradient(135deg, rgba(255,0,233,0.1) 0%, rgba(6,180,178,0.1) 100%);
+            padding: 30px;
+            margin-top: 40px;
+            border: 5px solid #ff00e9;
+        }
+        
+        .immersion-guide h2 {
+            background: linear-gradient(90deg, #ff00e9 0%, #06b4b2 100%);
+        }
+
+        .green-zone-box {
+            background: linear-gradient(135deg, rgba(76,175,80,0.15) 0%, rgba(139,195,74,0.15) 100%);
+            border: 3px solid #4caf50;
+            border-left: 8px solid #8bc34a;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .yellow-zone-box {
+            background: linear-gradient(135deg, rgba(255,193,7,0.15) 0%, rgba(255,152,0,0.15) 100%);
+            border: 3px solid #ffc107;
+            border-left: 8px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: relative;
+                width: 100%;
+                top: 0;
+            }
+
+            .header h1 {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>📋 Quick Navigation</h3>
+            </div>
+            <div class="nav-links">
+                <a href="#conduct">1. General Conduct</a>
+                <a href="#character">2. Character Standards</a>
+                <a href="#realism">3. Realism & Immersion</a>
+                <a href="#setting">4. 2006 Setting</a>
+                <a href="#criminal">5. Criminal Roleplay</a>
+                <a href="#law">6. Law Enforcement</a>
+                <a href="#communication">7. Voice & Communication</a>
+                <a href="#economy">8. Property & Economy</a>
+                <a href="#staff">9. Staff & Enforcement</a>
+                <a href="#quality">10. Quality Standards</a>
+                <a href="#immersion">🔼 2006 Immersion Guide</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1>TRINITY RP</h1>
+                <p>2006 Roleplay Server Rules</p>
+            </div>
+            
+            <div class="content">
+                <h2 id="conduct">1. General Conduct</h2>
+                
+                <h3>1.1 Respect</h3>
+                <ul>
+                    <li>Treat all players and staff with respect both in-character (IC) and out-of-character (OOC)</li>
+                    <li>No harassment, discrimination, or unacceptable behavior of any kind</li>
+                    <li>Disagreements should be handled maturely through proper channels</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>😡 Disrespect, Distasteful, Disgusting</h4>
+                    <p>This behavior means being intentionally hurtful, offensive, or disruptive. This includes:</p>
+                    <ul>
+                        <li>Using slurs or hate speech (no bigotry or T.R.A.S.H allowed)</li>
+                        <li>Intentionally misgendering someone based on their voice</li>
+                        <li>Starting IRL political arguments or debates</li>
+                        <li>Harassing or bullying others (this includes repeatedly attacking or harassing the same person over and over with no end to it)</li>
+                    </ul>
+                    <p><strong>Bottom line:</strong> Don't be the reason someone logs off or doesn't log in. Treat others the way you would want to be treated.</p>
+                </div>
+
+                <div class="green-zone-box">
+                    <h4>🏥 Green Zones</h4>
+                    <p><strong>Governmental Hospitals, Police stations, and City Hall</strong> are safe zones. No crime or hostile RP is allowed inside these venues.</p>
+                    <p>Hospitals, hairdressers, tattoo shops, and clothing stores are also protected because people are in menu interactions and have no way of defending themselves, leaving them at a complete disadvantage.</p>
+                    <p><strong>Do not hospital camp</strong> - meaning if you injure someone, you cannot wait outside the hospital to attack them again.</p>
+                </div>
+
+                <div class="yellow-zone-box">
+                    <h4>⚠️ Yellow Zones</h4>
+                    <p><strong>Hairdressers, tattoo shops, and clothing stores</strong> have menu interactions where players have no way of defending themselves. Please keep this in mind when you are wanting to hold someone up at these places.</p>
+                    <p><strong>No taking a person hostage</strong> when they are clearly in an active job that depends on them having to finish the job in order to get paid (vehicles will despawn and they will not be able to finish their job).</p>
+                </div>
+                
+                <h3>1.2 Metagaming</h3>
+                <ul>
+                    <li><strong>Prohibited</strong>: Using information obtained outside of roleplay (Discord, streams, etc.) to influence in-game decisions</li>
+                    <li>Using Discord info unless it's posted in an IC channel</li>
+                    <li>Watching or lurking live streams while logged in on the server</li>
+                    <li>Using player IDs to identify someone unless you're reporting them</li>
+                    <li>Do not use player nametags, voice identifiers, or OOC knowledge to identify characters</li>
+                    <li>Information learned on one character cannot be used on another character</li>
+                    <li><strong>Changelogs:</strong> Don't use changelogs to act on new features IC. Discover things organically through roleplay. If PDM is adding cars, wait for their announcement—don't rush in just because you saw it in the logs.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>🗣️ Voice ID & Appearance</h4>
+                    <p>You can't identify someone just by their voice, hair, or outfit unless they're wearing the exact same clothes. Don't assume it's the same person without solid IC evidence.</p>
+                    <p><strong>For people committing crimes:</strong> Please make an effort to disguise yourself. Try altering or lowering the pitch of your voice and actually make the effort to get a good disguise on.</p>
+                </div>
+                
+                <h3>1.3 Powergaming</h3>
+                <ul>
+                    <li>Do not force actions or scenarios onto other players without giving them a chance to respond. For Torture RP and ERP, it must be consensual</li>
+                    <li>Do not abuse game mechanics to gain unfair advantages</li>
+                    <li>Allow others to roleplay appropriately in all situations</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>🕳️ Exploitation</h4>
+                    <p>If you abuse bugs, glitches, in-game mechanics such as (but not limited to) free cam abuse, scuffs, or emotes to gain an edge over others, you'll be brought in to a ticket. Report any bugs or issues through the ticket system instead of abusing them.</p>
+                </div>
+                
+                <h3>1.4 Erotic Roleplay (ERP)</h3>
+                <ul>
+                    <li>ERP is allowed only if consensual between all parties involved</li>
+                    <li>ERP must take place in private settings (homes, hotel rooms, etc.) - never in public areas</li>
+                    <li>All participants must be 18+ years of age</li>
+                    <li>If someone withdraws consent at any time, the roleplay must stop immediately</li>
+                    <li><strong>Strictly prohibited</strong>: Sexual assault, rape, and any roleplay involving bodily fluids are not allowed under any circumstances</li>
+                    <li>Failure to respect consent will result in immediate removal from the server</li>
+                </ul>
+                
+                <h3>1.5 Torture Roleplay</h3>
+                <ul>
+                    <li>Torture RP is allowed only with explicit OOC consent from all parties involved</li>
+                    <li>Discuss boundaries and limits before beginning any torture scenario</li>
+                    <li>Either party can use a safe word/phrase to stop the scenario at any time</li>
+                    <li>Keep scenarios realistic to the server setting (criminal interrogations, gang conflicts, etc.)</li>
+                    <li>Excessive or gratuitous violence for shock value is discouraged</li>
+                    <li>Remember to roleplay the lasting effects and consequences on your character</li>
+                    <li>If you're uncomfortable at any point, communicate OOC immediately</li>
+                    <li><strong>Isolated and desolated locations:</strong> Torture is not to be done in a public setting</li>
+                </ul>
+                
+                <h3>1.6 Random Deathmatch (RDM)</h3>
+                <ul>
+                    <li>Killing another player without proper roleplay reasoning is strictly prohibited</li>
+                    <li>All hostile actions must have clear roleplay justification and buildup</li>
+                </ul>
+                
+                <h3>1.7 Vehicle Deathmatch (VDM)</h3>
+                <ul>
+                    <li>Using vehicles as weapons without proper roleplay context is prohibited</li>
+                    <li>Running over players intentionally without roleplay reason will result in punishment</li>
+                </ul>
+                
+                <h2 id="character">2. Character Standards</h2>
+                
+                <h3>2.1 Character Names</h3>
+                <ul>
+                    <li>Names must be realistic and appropriate for the 2006 setting</li>
+                    <li><strong>Prohibited</strong>: Intentionally choosing celebrity names, meme names, brand names, or joke names</li>
+                    <li><strong>Prohibited</strong>: Names of characters from TV shows, films, or novels. If your character's name falls into these categories, we will ask you to please rename them</li>
+                    <li><strong>Prohibited</strong>: Overly edgy, vulgar, or attention-seeking names</li>
+                    <li>Examples of acceptable names: John Miller, Maria Rodriguez, David Chen</li>
+                    <li>Examples of unacceptable names: Sniper, Tony Stark, Elon Musk, Ninja</li>
+                </ul>
+                
+                <h3>2.2 Character Backstories</h3>
+                <ul>
+                    <li>Keep backstories realistic and grounded in 2006 continuity (characters must be born before 1988)</li>
+                    <li>No military special forces, CIA operatives, or "super soldier" backgrounds without staff approval</li>
+                    <li>Characters should have believable motivations and histories</li>
+                </ul>
+                
+                <h2 id="realism">3. Realism & Immersion</h2>
+                
+                <h3>3.1 Fear Roleplay (FearRP)</h3>
+                <ul>
+                    <li>Value your character's life at all times</li>
+                    <li>If threatened with a weapon, comply realistically</li>
+                    <li>Do not perform heroic actions when your life is in danger</li>
+                    <li>Acknowledge injuries appropriately</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p>If you hold a weapon to someone, make sure you have proper reasoning. <strong>Words don't always equal violence.</strong> Remember that as soon as the shots are fired, the scene is over for everyone.</p>
+                    <p>You have a right to defend yourself. If your character would realistically pull a weapon or try to get the advantage on them, type <strong>/try</strong> (it will be green or red. If green, continue to defend yourself. If red, put your hands up).</p>
+                    <p>Remember this is not about winning a situation. If you're outnumbered, surrender. Running from cops with a gun is fine—but don't act invincible.</p>
+                </div>
+                
+                <h3>3.2 New Life Rule (NLR)</h3>
+                <ul>
+                    <li>After being downed/killed, you forget the events leading to your death</li>
+                    <li>Do not return to the area of your death for <strong>30 minutes</strong></li>
+                    <li>Do not seek revenge based on events from before your death</li>
+                    <li><strong>Hitting E (Respawn):</strong> If you respawn (see the light), meaning you are not taken to hospital by another character, you must forget everything from that scene—unless EMS, PD, or a bystander informs you, or you do not press E and get taken to the hospital.</li>
+                </ul>
+                
+                <h3>3.3 Clothing & Appearance</h3>
+                <ul>
+                    <li>Dress appropriately for your character's profession and situation</li>
+                    <li><strong>Masks and face coverings</strong>: May only be worn when there is a legitimate IC reason (committing crimes, specific jobs, weather conditions)</li>
+                    <li>Walking around in public with masks, balaclavas, or full face coverings without reason is prohibited</li>
+                    <li>Law enforcement will treat masked individuals as suspicious</li>
+                    <li>Clothing must be era-appropriate (2006 fashion standards)</li>
+                </ul>
+                
+                <h3>3.4 Fail Roleplay</h3>
+                <ul>
+                    <li>Actions must be realistic and make sense for the situation</li>
+                    <li>Unrealistic driving (excessive stunts without reason), jumping off buildings, or other physics-defying actions without RP context are prohibited</li>
+                    <li>Use common sense: if you wouldn't do it in real life, don't do it in-game</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>Examples of poor roleplay:</h4>
+                    <ul>
+                        <li>Using friends as fake hostages</li>
+                        <li>Ignoring /me actions from EMS or PD</li>
+                        <li>Unrealistic injuries (e.g., "I broke my ankle" from a minor fall)</li>
+                        <li>Talking unhindered while downed</li>
+                    </ul>
+                </div>
+                
+                <h3>3.5 Medical Roleplay</h3>
+                <ul>
+                    <li>You must roleplay your injuries appropriately and realistically</li>
+                    <li>Severity matters: a gunshot to the head is not "just a scratch" - treat serious injuries seriously</li>
+                    <li>Medical professionals are not revive stations or healing mechanics - they are players with their own stories</li>
+                    <li>Give medical staff time to roleplay treatment and diagnosis</li>
+                    <li>We understand not everyone knows medical terminology - do your best and focus on the roleplay experience</li>
+                    <li>After serious injuries, roleplay recovery time and lasting effects when appropriate</li>
+                    <li>Respect EMS/medical RP and don't rush them through their procedures</li>
+                    <li><strong>Do not roleplay terminal or chronic illnesses</strong>: Conditions such as cancer, AIDS, or other slow-progressing terminal illnesses should not be roleplayed as they can be emotionally difficult and require long-term storylines that may be challenging to sustain appropriately</li>
+                </ul>
+                
+                <h2 id="setting">4. 2006 Setting & Continuity</h2>
+                
+                <h3>4.1 Technology</h3>
+                <ul>
+                    <li>Technology must reflect 2006 limitations</li>
+                    <li>Smartphones do not exist (flip phones and basic cell phones only)</li>
+                    <li>No references to social media platforms that didn't exist (Instagram, TikTok, etc.)</li>
+                    <li>MySpace and early Facebook were a thing in 2006. If you want to reference social media it will be called MyFace in Trinity RP</li>
+                    <li>Internet culture should reflect 2006 (dial-up/early broadband era)</li>
+                </ul>
+                
+                <h3>4.2 Cultural References</h3>
+                <ul>
+                    <li>Keep slang, references, and cultural knowledge appropriate to 2006</li>
+                    <li>No mention of people or things that occurred after 2006</li>
+                    <li><strong>No mention of real life disasters, historical tragedies, and heavy IRL political or religious topics.</strong> Focus on creating lore within the city.</li>
+                    <li>Music, movies, and pop culture references must be from 2006 or earlier</li>
+                </ul>
+                
+                <h2 id="criminal">5. Criminal Roleplay</h2>
+                
+                <h3>5.1 Criminal Activity</h3>
+                <ul>
+                    <li>Criminal roleplay must be well-planned and realistic</li>
+                    <li>Avoid targeting the same players/businesses repeatedly</li>
+                    <li>Give hostages and victims meaningful roleplay, not just quick robberies</li>
+                    <li>Major crimes require proper setup and reasoning</li>
+                    <li><strong>Sentences:</strong> Sentences served online will go at a rate of 1/1. When you log out, your sentence will continue to be served but at a depreciated value of 1/4 time.</li>
+                </ul>
+                
+                <h3>5.2 Robberies & Heists</h3>
+                <ul>
+                    <li>Minimum of 4 police officers online for bank robberies</li>
+                    <li>Take time to establish your criminal character before major crimes</li>
+                    <li>Hostage situations must involve actual roleplay, not just using them as shields</li>
+                </ul>
+                
+                <h3>5.3 Gang Roleplay</h3>
+                <ul>
+                    <li>Gang affiliations must be developed through roleplay</li>
+                    <li>No "instant gang members" - build your reputation</li>
+                    <li>Gang colors, territory, and rivalries must make sense and be developed IC</li>
+                </ul>
+                
+                <h2 id="law">6. Law Enforcement Roleplay</h2>
+                
+                <h3>6.1 Police Standards</h3>
+                <ul>
+                    <li>Officers must follow realistic police procedures</li>
+                    <li>Excessive force should only be used when justified</li>
+                    <li>Proper investigations and evidence gathering are expected</li>
+                    <li>Corruption is allowed but must be approved by staff and well-roleplayed. Open a ticket in the Discord under storytelling.</li>
+                </ul>
+                
+                <h3>6.2 Arrests & Processing</h3>
+                <ul>
+                    <li>Give criminals proper roleplay during arrests and processing</li>
+                    <li>Follow proper booking procedures</li>
+                    <li>Sentence times should be fair and proportional to the crime</li>
+                </ul>
+                
+                <h3>6.3 Interacting with Law Enforcement</h3>
+                <ul>
+                    <li><strong>No cop baiting</strong>: Do not commit crimes solely to initiate police chases or shootouts</li>
+                    <li>Do not call police to inform them you're committing a crime just to create a scenario</li>
+                    <li>Crimes should have realistic motivations (money, territory, revenge, etc.) not just "I want a police chase"</li>
+                    <li>If stopped by police, provide realistic roleplay - don't immediately escalate to violence</li>
+                    <li>Respect that officers are trying to create roleplay for everyone involved</li>
+                    <li>Allow police investigations to develop naturally - don't force confrontations</li>
+                </ul>
+                
+                <h2 id="communication">7. Voice & Communication</h2>
+                
+                <h3>7.1 Voice Chat</h3>
+                <ul>
+                    <li>Use voice chat for all IC communication when possible</li>
+                    <li>Microphone quality should be clear enough for others to understand</li>
+                    <li>Maintain appropriate voice volume (no screaming excessively without reason)</li>
+                    <li>If you are non-verbal, that's ok! We have a /sign command to communicate and ASL menu</li>
+                </ul>
+                
+                <h3>7.2 Out of Character (OOC)</h3>
+                <ul>
+                    <li>Keep OOC communication to a minimum in public areas</li>
+                    <li>Use proper OOC channels (Discord, admin tickets) for issues</li>
+                    <li>Do not break character to argue or complain</li>
+                </ul>
+                
+                <h3>7.3 Language</h3>
+                <ul>
+                    <li>Excessive profanity should be used appropriately for situations</li>
+                    <li>Slurs and extremely offensive language may result in immediate removal</li>
+                    <li>Keep trash talk IC and never personal</li>
+                    <li><strong>The N word in any form is not allowed on this server.</strong></li>
+                </ul>
+                
+                <h2 id="economy">8. Property & Economy</h2>
+                
+                <h3>8.1 Property Ownership</h3>
+                <ul>
+                    <li>Own properties that make sense for your character's income</li>
+                    <li>Do not hoard properties to prevent others from playing</li>
+                    <li>Maintain roleplay at properties (businesses should have IC purpose)</li>
+                </ul>
+                
+                <h3>8.2 Economy</h3>
+                <ul>
+                    <li>Earn money through legitimate roleplay methods</li>
+                    <li>Do not exploit bugs or mechanics for financial gain</li>
+                    <li>Prices for goods and services should be reasonable</li>
+                </ul>
+                
+                <h2 id="staff">9. Staff & Rule Enforcement</h2>
+                
+                <h3>9.1 Reporting</h3>
+                <ul>
+                    <li>Report rule violations through proper channels (tickets, not public chat). If you believe you can roleplay it out properly, go ahead.</li>
+                    <li>Provide evidence when possible (clips of the entire scene - 30 seconds before and after, screenshots)</li>
+                    <li>Do not take rule enforcement into your own hands</li>
+                </ul>
+                
+                <h3>9.2 Staff Decisions</h3>
+                <ul>
+                    <li>Staff decisions are final</li>
+                    <li>Appeals can be made through appropriate channels</li>
+                    <li>Arguing with staff in-game will result in additional punishment</li>
+                </ul>
+                
+                <h3>9.3 Bans & Punishment</h3>
+                <ul>
+                    <li>Ban lengths depend on severity and history</li>
+                    <li>First offenses may result in warnings for minor infractions</li>
+                    <li>Serious violations (RDM, metagaming, harassment) may result in immediate bans</li>
+                    <li>Ban evasion will result in permanent removal</li>
+                </ul>
+                
+                <h2 id="quality">10. Quality Roleplay Standards</h2>
+                
+                <h3>10.1 Effort</h3>
+                <ul>
+                    <li>Put effort into your character development</li>
+                    <li>Create meaningful interactions, not just surface-level conversations</li>
+                    <li>Contribute to others' storylines, not just your own</li>
+                </ul>
+                
+                <h3>10.2 Scenarios</h3>
+                <ul>
+                    <li>Allow scenarios to develop naturally</li>
+                    <li>Don't rush to the "action" - build tension and story</li>
+                    <li>Consider the consequences of your character's actions</li>
+                </ul>
+                
+                <h3>10.3 Separation of IC and OOC</h3>
+                <ul>
+                    <li>Do not take IC actions personally OOC</li>
+                    <li>IC conflict should not become OOC conflict</li>
+                    <li>Remember this is a game meant for everyone's enjoyment</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Remember:</strong> When in doubt, ask yourself "Is this realistic?" and "Does this improve the roleplay experience for everyone involved?" If the answer is no, reconsider your actions.</p>
+                </div>
+                
+                <hr>
+                
+                <div class="immersion-guide" id="immersion">
+                    <h2>🔼 2006 Immersion Guide 🔼</h2>
+                    <p style="text-align: center; font-size: 18px; margin-bottom: 30px;"><em>Technology, Culture & Slang</em></p>
+                    
+                    <p>Welcome to 2006! To help you stay immersive and authentic to the era, here's a fun guide to what was popular, trending, and part of everyday life back then.</p>
+                    
+                    <h2>Technology & Gadgets (2002-2006)</h2>
+                    
+                    <h3>Mobile Phones</h3>
+                    <ul>
+                        <li><strong>Motorola RAZR V3</strong> - The ultimate status symbol flip phone (launched 2004)</li>
+                        <li><strong>Nokia 3310/6600</strong> - Indestructible brick phones everyone had</li>
+                        <li><strong>Sidekick/Sidekick II</strong> - The "fancy" phone with a QWERTY keyboard and flip screen</li>
+                        <li><strong>Blackberry</strong> - For business professionals and "important" people</li>
+                        <li><strong>Prepaid phones</strong> - "Burner phones" and prepaid cards for minutes were common</li>
+                        <li>Text messaging (SMS) was charged per message - no unlimited plans yet!</li>
+                        <li>Ringtones were a HUGE deal - polyphonic and then real music tones</li>
+                        <li>T9 texting was the skill everyone had to master</li>
+                    </ul>
+                    
+                    <h3>Music & Media</h3>
+                    <ul>
+                        <li><strong>iPod</strong> (various generations) - White earbuds everywhere</li>
+                        <li>iPod Mini, iPod Nano, iPod Shuffle were the cool variants</li>
+                        <li><strong>Portable CD players</strong> still common</li>
+                        <li><strong>MP3 players</strong> - Creative Zen, SanDisk, iRiver</li>
+                        <li><strong>Walkman</strong> - Yes, people still used these for cassettes</li>
+                        <li>Burning CDs was how you shared music</li>
+                        <li>LimeWire, Kazaa, Napster - music piracy was rampant</li>
+                    </ul>
+                    
+                    <h3>Gaming</h3>
+                    <ul>
+                        <li><strong>PlayStation 2</strong> - The dominant console</li>
+                        <li><strong>Xbox</strong> and <strong>Xbox 360</strong> (launched late 2005)</li>
+                        <li><strong>Nintendo GameCube</strong> and <strong>Nintendo DS</strong></li>
+                        <li><strong>PSP (PlayStation Portable)</strong> - launched 2005</li>
+                        <li><strong>Game Boy Advance/SP</strong></li>
+                        <li>GTA San Andreas (2004), GTA Vice City (2002) were recent releases</li>
+                    </ul>
+                    
+                    <h3>Computers & Internet</h3>
+                    <ul>
+                        <li><strong>Windows XP</strong> was the standard operating system</li>
+                        <li>Desktop computers were still more common than laptops</li>
+                        <li><strong>Dial-up internet</strong> still existed, but broadband was growing</li>
+                        <li><strong>AOL Instant Messenger (AIM)</strong> - THE way to talk to friends online</li>
+                        <li><strong>MSN Messenger</strong> - Another popular chat platform</li>
+                        <li><strong>MySpace</strong> (launched 2003) - Your Top 8 friends was serious business</li>
+                        <li><strong>Facebook</strong> - Just launched 2004, still college-only until Sept 2006</li>
+                        <li><strong>YouTube</strong> - Launched February 2005, still very new</li>
+                        <li>Downloading a single song took 5-10 minutes</li>
+                        <li>"BRB" meant something because you had to actually leave the computer</li>
+                    </ul>
+                    
+                    <h3>Cameras & Photos</h3>
+                    <ul>
+                        <li><strong>Digital cameras</strong> were getting popular but still expensive</li>
+                        <li>Most phones had terrible 1-2 megapixel cameras (if any)</li>
+                        <li>You still got photos printed at Walmart or CVS</li>
+                        <li>Disposable cameras were still common</li>
+                        <li><strong>Flip video cameras</strong> for recording</li>
+                    </ul>
+                    
+                    <h2>Popular Slang & Phrases (2002-2006)</h2>
+                    
+                    <h3>Common Sayings</h3>
+                    <ul>
+                        <li><strong>"That's hot"</strong> - Paris Hilton's catchphrase</li>
+                        <li><strong>"Bling bling"</strong> - Flashy jewelry/showing off wealth</li>
+                        <li><strong>"Crunk"</strong> - Crazy + drunk, or just hype/energetic</li>
+                        <li><strong>"Fo shizzle"</strong> - For sure (Snoop Dogg influence)</li>
+                        <li><strong>"My bad"</strong> - My mistake</li>
+                        <li><strong>"That's tight"</strong> - That's cool/awesome</li>
+                        <li><strong>"Off the hook"</strong> - Amazing, crazy good</li>
+                        <li><strong>"Talk to the hand"</strong> - I don't want to hear it</li>
+                        <li><strong>"All that and a bag of chips"</strong> - Really great</li>
+                        <li><strong>"Booyah!"</strong> - Exclamation of excitement/victory</li>
+                        <li><strong>"Get crunk"</strong> - Get excited/party</li>
+                        <li><strong>"Hella"</strong> - Very/really (West Coast especially)</li>
+                        <li><strong>"Sick"</strong> - Awesome, cool</li>
+                        <li><strong>"That's whack"</strong> - That's messed up/not cool</li>
+                        <li><strong>"Bling"</strong> - Expensive jewelry</li>
+                        <li><strong>"Pimp"</strong> - Cool, or to improve something ("pimp my ride")</li>
+                        <li><strong>"Props"</strong> - Respect/recognition</li>
+                        <li><strong>"You got served"</strong> - You got owned/beaten</li>
+                        <li><strong>"24/7"</strong> - All the time</li>
+                        <li><strong>"My homie/homeboy"</strong> - My friend</li>
+                        <li><strong>"Keepin' it real"</strong> - Being authentic</li>
+                    </ul>
+                    
+                    <h3>Internet/Text Speak</h3>
+                    <ul>
+                        <li><span class="glittery">"LOL"</span> - Laugh out loud</li>
+                        <li><span class="glittery">"BRB"</span> - Be right back</li>
+                        <li><span class="glittery">"AFK"</span> - Away from keyboard</li>
+                        <li><span class="glittery">"TTYL"</span> - Talk to you later</li>
+                        <li><span class="glittery">"OMG"</span> - Oh my god</li>
+                        <li><span class="glittery">"WTF"</span> - What the f***</li>
+                        <li><span class="glittery">"ROFL"</span> - Rolling on floor laughing</li>
+                        <li><span class="glittery">"ASL?"</span> - Age/Sex/Location (AIM chat rooms)</li>
+                        <li><span class="glittery">"G2G"</span> - Got to go</li>
+                        <li><span class="glittery">"JK"</span> - Just kidding</li>
+                        <li><span class="glittery">"NM" or "NMU"</span> - Not much / Not much, you?</li>
+                        <li><span class="glittery">"LMAO"</span> - Laughing my a** off</li>
+                        <li><span class="glittery">"IDK"</span> - I don't know</li>
+                        <li><span class="glittery">"BTW"</span> - By the way</li>
+                    </ul>
+                    
+                    <h2>Pop Culture & Trends</h2>
+                    
+                    <h3>Fashion</h3>
+                    <ul>
+                        <li><strong>Trucker hats</strong> (Von Dutch brand especially)</li>
+                        <li><strong>Popped collars</strong> on polo shirts</li>
+                        <li><strong>Low-rise jeans</strong> - VERY low</li>
+                        <li><strong>Velour tracksuits</strong> (Juicy Couture)</li>
+                        <li><strong>Ugg boots</strong> with miniskirts</li>
+                        <li><strong>Hoop earrings</strong> - bigger was better</li>
+                        <li><strong>Studded belts</strong></li>
+                        <li><strong>Bandanas</strong> as fashion accessories</li>
+                        <li><strong>Oversized jerseys</strong> and baggy jeans (hip-hop style)</li>
+                        <li><strong>Emo/scene fashion</strong> - skinny jeans, band tees, studded belts, side-swept bangs</li>
+                        <li><strong>Skater shoes</strong> - DC, Etnies, Vans, Osiris with fat tongues</li>
+                        <li><strong>Throwback jerseys</strong></li>
+                    </ul>
+                    
+                    <h3>Music</h3>
+                    <ul>
+                        <li><strong>50 Cent</strong> - "In Da Club", "Candy Shop"</li>
+                        <li><strong>Eminem</strong> - "Lose Yourself", "Without Me"</li>
+                        <li><strong>OutKast</strong> - "Hey Ya!"</li>
+                        <li><strong>Usher</strong> - "Yeah!"</li>
+                        <li><strong>Gwen Stefani</strong> - "Hollaback Girl"</li>
+                        <li><strong>Kanye West</strong> - "Gold Digger", "Jesus Walks"</li>
+                        <li><strong>Green Day</strong> - "American Idiot"</li>
+                        <li><strong>The Black Eyed Peas</strong> - "Let's Get It Started"</li>
+                        <li><strong>Nelly</strong> - "Hot in Herre"</li>
+                        <li><strong>Ludacris, Lil Jon, T.I.</strong> - Crunk music era</li>
+                        <li><strong>Fall Out Boy, My Chemical Romance, Panic! At The Disco</strong> - Emo/pop-punk</li>
+                    </ul>
+                    
+                    <h3>TV Shows</h3>
+                    <ul>
+                        <li><strong>The OC</strong> (2003-2007)</li>
+                        <li><strong>Laguna Beach</strong> (2004-2006)</li>
+                        <li><strong>Pimp My Ride</strong> (2004-2007)</li>
+                        <li><strong>Punk'd</strong> (2003-2007)</li>
+                        <li><strong>Chappelle's Show</strong> (2003-2006)</li>
+                        <li><strong>Lost</strong> (2004-2010)</li>
+                        <li><strong>Desperate Housewives</strong> (2004-2012)</li>
+                        <li><strong>Grey's Anatomy</strong> (started 2005)</li>
+                        <li><strong>The Office</strong> US version (started 2005)</li>
+                        <li><strong>24</strong> (2001-2010)</li>
+                        <li>Reality TV was HUGE - Survivor, American Idol, The Apprentice</li>
+                    </ul>
+                    
+                    <h3>Movies (2002-2006)</h3>
+                    <ul>
+                        <li><strong>Spider-Man</strong> 1 & 2</li>
+                        <li><strong>Pirates of the Caribbean</strong></li>
+                        <li><strong>Lord of the Rings</strong> trilogy</li>
+                        <li><strong>Star Wars Episode II & III</strong></li>
+                        <li><strong>The Bourne Identity/Supremacy</strong></li>
+                        <li><strong>Mean Girls</strong> (2004)</li>
+                        <li><strong>Napoleon Dynamite</strong> (2004)</li>
+                        <li><strong>Wedding Crashers</strong> (2005)</li>
+                        <li><strong>40-Year-Old Virgin</strong> (2005)</li>
+                        <li><strong>Batman Begins</strong> (2005)</li>
+                        <li><strong>Saw</strong> (2004) - started the torture-horror trend</li>
+                        <li><strong>Crash</strong> (2004)</li>
+                    </ul>
+                    
+                    <h3>Celebrities & Icons</h3>
+                    <ul>
+                        <li><strong>Paris Hilton & Nicole Richie</strong> - "The Simple Life"</li>
+                        <li><strong>Britney Spears</strong> - Still huge, pre-2007 meltdown</li>
+                        <li><strong>Lindsay Lohan</strong> - "Mean Girls" era, peak popularity</li>
+                        <li><strong>Ashton Kutcher</strong> - Punk'd host and actor</li>
+                        <li><strong>Jessica Simpson & Nick Lachey</strong> - "Newlyweds" reality show</li>
+                        <li><strong>Mary-Kate & Ashley Olsen</strong></li>
+                        <li><strong>Mischa Barton</strong> - The OC</li>
+                        <li><strong>50 Cent</strong> - Everywhere in pop culture</li>
+                        <li><strong>Tony Hawk</strong> - Skateboarding was massive</li>
+                    </ul>
+                    
+                    <h2>What DIDN'T Exist Yet</h2>
+                    
+                    <p>Remember, these things were NOT around in 2006:</p>
+                    <ul>
+                        <li><strong>No iPhone</strong> (launched June 2007)</li>
+                        <li><strong>No smartphones</strong> as we know them</li>
+                        <li><strong>No Twitter</strong> (launched 2006, but not popular until 2008+)</li>
+                        <li><strong>No Instagram, Snapchat, TikTok</strong></li>
+                        <li><strong>No Netflix streaming</strong> (still DVD by mail)</li>
+                        <li><strong>No Uber/Lyft</strong></li>
+                        <li><strong>No "selfie"</strong> - that word didn't exist yet</li>
+                        <li><strong>No tablets/iPads</strong></li>
+                        <li><strong>No HD TVs</strong> in most homes (720p was "HD")</li>
+                        <li><strong>No wireless charging</strong></li>
+                        <li><strong>No mobile apps/app stores</strong></li>
+                        <li><strong>No hashtags</strong> in common use</li>
+                        <li><strong>No GPS in most cars</strong> - you used MapQuest printouts or paper maps</li>
+                    </ul>
+                    
+                    <h2>Quick Tips for Staying in Character</h2>
+                    
+                    <ol>
+                        <li><strong>Your phone is basic</strong> - You can call and text, that's about it. No apps, no internet browsing worth mentioning</li>
+                        <li><strong>Making plans is harder</strong> - You can't just check someone's location or send a quick message. You have to actually call or meet up</li>
+                        <li><strong>Information isn't instant</strong> - Google existed but wasn't as comprehensive. You might actually not know something immediately</li>
+                        <li><strong>Social media is new and clunky</strong> - MyFace (MySpace) is about customizing your profile with glittery backgrounds and choosing your Top 8</li>
+                        <li><strong>Music is physical</strong> - You burn CDs, you carry a CD case in your car, you buy albums</li>
+                        <li><strong>Photos are special</strong> - You can't take 100 photos and delete 99. Digital cameras have limited storage</li>
+                        <li><strong>TV shows matter</strong> - No streaming means you actually had to watch shows when they aired or record them on VHS/DVR</li>
+                    </ol>
+                    
+                    <div class="highlight-box" style="margin-top: 30px;">
+                        <p style="text-align: center; font-size: 18px;"><strong>Use this guide to help make your character feel authentic to 2006!</strong></p>
+                        <p style="text-align: center;">Don't stress about perfection, but try to avoid major anachronisms. When in doubt, ask yourself: "Would this exist or make sense in 2006?"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p><strong>Questions?</strong> Contact staff through our Discord support system.</p>
+                <p style="margin-top: 20px;">Welcome to Trinity RP - Let's make 2006 come alive! 🎮</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Update active state
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Update active state on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('h2[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
